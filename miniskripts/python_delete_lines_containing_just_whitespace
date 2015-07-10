@@ -1,0 +1,14 @@
+"""
+I noticed that sometimes I end up with some seemingly empty lines that have
+a bunch of whitespace fitting the indentation of the line above. Haven't yet identified what sorts of flaw in my workflow leads me to these, but they're
+particularly noticeable when I try to navigate the file by paragraphs i.e.
+('{' and '}' are the default bindings) which care about the non-empty-line.
+
+# Vim:
+:%s/\s\+$//g  # Also removes trailing whitespace
+
+# Sed:
+sed 's/\s\+$//' file  # Also removes trailing whitespace
+
+# Awk:
+awk '!/^\s+$/{print;next}/^\s+$/{print "\n"}' file
