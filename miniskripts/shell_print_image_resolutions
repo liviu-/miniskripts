@@ -1,0 +1,8 @@
+"""
+Quick oneliner to print only the filename and the resolution of each image in
+a directory. Currently supports only PNG and JPEG, and it was far from being
+tested extensively, nor did I read the `man` for `file` tool or anything to
+that degree of attention.
+"""
+
+for i in *.(jpeg|jpg|png); do file $i; done | awk -F'[,:]' '/JPEG|JPG/{print $1 " -" $(NF-1)}/PNG/{print $1 " -" $(NF-2)}'
