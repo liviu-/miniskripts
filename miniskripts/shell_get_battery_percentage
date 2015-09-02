@@ -1,0 +1,5 @@
+"""
+Display battery percentage. Depends on upower and it's only been tried on my Arch distro
+"""
+
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '$0=$2'
