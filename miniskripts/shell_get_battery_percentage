@@ -1,5 +1,9 @@
 """
-Display battery percentage. Depends on upower and it's only been tried on my Arch distro
+Display battery percentage. Only tested on my Arch distro.
 """
 
+# upower dependency
 upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '$0=$2'
+
+# no upower dependency
+echo $((`cat /sys/class/power_supply/BAT0/charge_now` * 1000 / `cat /sys/class/power_supply/BAT0/charge_full`)) | head -c2
