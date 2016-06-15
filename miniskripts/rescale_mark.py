@@ -33,7 +33,7 @@ intervals = {
     100:75,
 }
 
-upper = next(i for i in set(intervals.keys()) if old_mark < i)
+upper = next(i for i in set(intervals) if old_mark < i)
 lower = intervals[upper]
 upper_rescaled = min(upper + difference, 100)
 lower_rescaled = lower + difference
