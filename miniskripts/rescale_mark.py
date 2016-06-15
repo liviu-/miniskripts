@@ -18,6 +18,7 @@ else:
         old_mark = int(sys.argv[1])
     except ValueError:
         print("Please use a number as an argument")
+        sys.exit()
     if old_mark not in range(100):
         print("Please use a number between 0 and 100")
         sys.exit()
